@@ -1,0 +1,23 @@
+.navbar {
+  height: 80px;
+  background-color: #1c2b35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 140px;
+}
+
+.navbar img {
+  width: 140px;
+}
+
+.navlinks a {
+  color: white;
+  text-decoration: none;
+  margin-left: 36px;
+  font-size: 17px;
+}
+
+.navlinks a:hover {
+  color: orange;
+}
