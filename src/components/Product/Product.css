@@ -1,0 +1,13 @@
+.product {
+  width: 280px;
+  height: 510px;
+}
+
+.product img {
+  width: 286px;
+}
+
+.product-name {
+  color: #0e161a;
+  font-size: 21px;
+}
