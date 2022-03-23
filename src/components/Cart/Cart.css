@@ -29,22 +29,22 @@
   align-items: center;
 }
 
-.clear-cart {
-  width: 85%;
-  height: 48px;
-  color: white;
-  border: none;
-  background: #ff3030;
-  border-radius: 4px;
-}
-
+.clear-cart,
 .review-order {
   width: 85%;
   height: 48px;
   color: white;
   border: none;
-  background: #ff9900;
   border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-cart {
+  background: #ff3030;
+}
+
+.review-order {
+  background: #ff9900;
 }
 
 .cart-btn {
