@@ -1,6 +1,7 @@
 .cart {
   background: rgba(255, 153, 0, 0.3);
   position: fixed;
+  width: 18%;
   right: 0;
   top: 80px;
   bottom: 0;
@@ -19,7 +20,7 @@
 }
 
 .grand-total {
-  font-size: 21px;
+  font-size: 18px;
 }
 
 .cart-btn {
