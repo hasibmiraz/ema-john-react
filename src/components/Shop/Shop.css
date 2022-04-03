@@ -10,3 +10,27 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
+
+.clear-cart,
+.review-order {
+  height: 48px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-cart {
+  width: 85%;
+  background: #ff3030;
+}
+
+.review-order {
+  width: 100%;
+  background: #ff9900;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  align-items: center;
+}

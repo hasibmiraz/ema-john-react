@@ -1,1 +1,14 @@
-
+.review-order {
+  height: 48px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  background: #0d6f2e;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 25px;
+  align-items: center;
+}
