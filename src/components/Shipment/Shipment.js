@@ -6,7 +6,6 @@ const Shipment = () => {
   const [user] = useAuthState(auth);
 
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
   const [phone, setPhone] = useState('');
 
@@ -24,7 +23,7 @@ const Shipment = () => {
 
   const handleCreateUser = (e) => {
     e.preventDefault();
-    const shipping = { name, email, address, phone };
+    const shipping = { name, address, phone };
     console.log(shipping);
   };
   return (
