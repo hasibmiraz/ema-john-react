@@ -2,38 +2,30 @@ import { faArrowRight, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import useProducts from '../../hooks/useProducts';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import useCart from '../../hooks/useCart';
+import { addToDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
 const Shop = () => {
-  const [products] = useProducts();
-  const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [cart, setCart] = useCart();
   const [pagesCount, setPagesCount] = useState(0);
   const [page, setPage] = useState(0);
   const [size, setSize] = useState(10);
 
   useEffect(() => {
-    fetch('http://localhost:5000/productsCount')
+    fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
       .then((res) => res.json())
-      .then(({ count }) => setPagesCount(Math.ceil(count / 10)));
-  }, []);
+      .then((data) => setProducts(data));
+  }, [page, size]);
 
   useEffect(() => {
-    const storedCart = getStoredCart();
-    const savedCart = [];
-    for (const id in storedCart) {
-      const addedProduct = products.find((product) => product._id === id);
-      if (addedProduct) {
-        const quantity = storedCart[id];
-        addedProduct.quantity = quantity;
-        savedCart.push(addedProduct);
-      }
-    }
-    setCart(savedCart);
-  }, [products]);
+    fetch('http://localhost:5000/productsCount')
+      .then((res) => res.json())
+      .then(({ count }) => setPagesCount(Math.ceil(count / size)));
+  }, [size]);
 
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
@@ -80,18 +72,16 @@ const Shop = () => {
       <div className="pagination">
         {[...Array(pagesCount).keys()].map((number, index) => (
           <button
-            onClick={() => setPage(number + 1)}
+            onClick={() => setPage(number)}
             key={index}
-            className={page === number + 1 ? 'selected' : ''}
+            className={page === number ? 'selected' : ''}
           >
             {number + 1}
           </button>
         ))}
-        <select onChange={(e) => setSize(e.target.value)}>
+        <select defaultValue={10} onChange={(e) => setSize(e.target.value)}>
           <option value="5">5</option>
-          <option value="10" selected>
-            10
-          </option>
+          <option value="10">10</option>
           <option value="15">15</option>
           <option value="20">20</option>
         </select>
