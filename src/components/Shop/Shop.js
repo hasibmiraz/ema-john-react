@@ -17,14 +17,14 @@ const Shop = () => {
 
   useEffect(() => {
     fetch(
-      `https://afternoon-shelf-60021.herokuapp.com/products?page=${page}&size=${size}`
+      `https://evening-reef-27130.herokuapp.com/products?page=${page}&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [page, size]);
 
   useEffect(() => {
-    fetch('https://afternoon-shelf-60021.herokuapp.com/productsCount')
+    fetch('https://evening-reef-27130.herokuapp.com/productsCount')
       .then((res) => res.json())
       .then(({ count }) => setPagesCount(Math.ceil(count / size)));
   }, [size]);
