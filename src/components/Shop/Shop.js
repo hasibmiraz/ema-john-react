@@ -16,13 +16,15 @@ const Shop = () => {
   const [size, setSize] = useState(10);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
+    fetch(
+      `https://afternoon-shelf-60021.herokuapp.com/products?page=${page}&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [page, size]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/productsCount')
+    fetch('https://afternoon-shelf-60021.herokuapp.com/productsCount')
       .then((res) => res.json())
       .then(({ count }) => setPagesCount(Math.ceil(count / size)));
   }, [size]);
